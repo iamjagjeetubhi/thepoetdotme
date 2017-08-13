@@ -1,0 +1,26 @@
+{% extends 'accounts/base.html' %}
+{% load avatar_tags %}
+
+{% block content %}
+<h2>Change profile image</h2>
+
+<p>Your current image :</p>
+{% avatar user %}
+
+{% if not avatars %}
+    <p>You haven't uploaded any images yet. Please upload one now.</p>
+{% else %}
+    <form method="POST" action="{% url 'avatar_change' %}">
+        <ul>
+            {{ primary_avatar_form.as_ul }}
+        </ul>
+        <p>{% csrf_token %}<input type="submit" value="Change avatar" /></p>
+    </form>
+{% endif %}
+
+<form enctype="multipart/form-data" method="POST" action="{% url 'avatar_add' %}">
+    {{ upload_avatar_form.as_p }}
+    <p>{% csrf_token %}<input type="submit" value="Upload avatar" /></p>
+</form>
+
+{% endblock %}
