@@ -64,15 +64,19 @@ AUTHENTICATION_BACKENDS = (
 )
 
 SOCIAL_AUTH_PIPELINE = (
+
+   
     'social_core.pipeline.social_auth.social_details',
     'social_core.pipeline.social_auth.social_uid',
+    'social_core.pipeline.social_auth.auth_allowed',
     'social_core.pipeline.social_auth.social_user',
     'social_core.pipeline.user.get_username',
+    'social_core.pipeline.social_auth.associate_by_email',
     'social_core.pipeline.user.create_user',
+    #'path.to.save_profile',  # <--- set the path to the function
     'social_core.pipeline.social_auth.associate_user',
     'social_core.pipeline.social_auth.load_extra_data',
     'social_core.pipeline.user.user_details',
-    'social_core.pipeline.social_auth.associate_by_email',
 )
 
 MIDDLEWARE = [
@@ -159,9 +163,15 @@ USE_L10N = True
 USE_TZ = True
 
 
-SOCIAL_AUTH_GITHUB_KEY = '21eec9161e38ddbfb8fe'
-SOCIAL_AUTH_GITHUB_SECRET = 'd897a630553cc332c959577c27d95e5ad95eb341'
+SOCIAL_AUTH_FACEBOOK_KEY = '140406389887930'
+SOCIAL_AUTH_FACEBOOK_SECRET = 'd4643d474f8b930bfa539cc3d4060404'
+SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
+SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {
+  'locale': 'ru_RU',
+  'fields': 'first_name, last_name, email, about, hometown, picture'
+}
 SOCIAL_AUTH_URL_NAMESPACE = 'social'
+SOCIAL_AUTH_FACEBOOK_API_VERSION = '2.9'
 # Serving static files in development
 # https://docs.djangoproject.com/en/1.10/howto/static-files/n
 

@@ -84,6 +84,9 @@ def myprofileview(request, username):
     bookname = user.profile.bookname
     bookgenre = user.profile.bookgenre
     bookurl = user.profile.bookurl
+    twitter = user.profile.twitter
+    facebook = user.profile.facebook
+    instagram = user.profile.instagram
     return render(request, 'accounts/12view_profile.html',{
         'user': user,
         'firstname' : firstname,
@@ -98,9 +101,16 @@ def myprofileview(request, username):
         'bookname' : bookname,
         'bookgenre' : bookgenre,
         'bookurl' : bookurl,
+        'twitter' : twitter,
+        'facebook' : facebook,
+        'email' : email,
+        'instagram' : instagram,
         })
 
-
+def save_profile(backend, user, response, *args, **kwargs):
+    if backend.name == 'facebook':
+        UP=Profile.objects.create(user=user,first_name=response['bio'],email=response['email'],instagram=response['location'],twitter=response['avatar_url'])
+        UP.save()
 
 @login_required
 @transaction.atomic
