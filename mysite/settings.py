@@ -73,10 +73,11 @@ SOCIAL_AUTH_PIPELINE = (
     'social_core.pipeline.user.get_username',
     'social_core.pipeline.social_auth.associate_by_email',
     'social_core.pipeline.user.create_user',
-    #'path.to.save_profile',  # <--- set the path to the function
+      # <--- set the path to the function
     'social_core.pipeline.social_auth.associate_user',
     'social_core.pipeline.social_auth.load_extra_data',
     'social_core.pipeline.user.user_details',
+    'accounts.models.save_profile',
 )
 
 MIDDLEWARE = [
@@ -168,8 +169,9 @@ SOCIAL_AUTH_FACEBOOK_SECRET = 'd4643d474f8b930bfa539cc3d4060404'
 SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
 SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {
   'locale': 'ru_RU',
-  'fields': 'first_name, last_name, email, about, hometown, picture'
+  'fields': 'first_name, name, link, last_name, email, picture'
 }
+
 SOCIAL_AUTH_URL_NAMESPACE = 'social'
 SOCIAL_AUTH_FACEBOOK_API_VERSION = '2.9'
 # Serving static files in development

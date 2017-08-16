@@ -5,7 +5,10 @@ from django.contrib.auth.models import User
 from django_countries.fields import CountryField
 from image_cropping import ImageCropField, ImageRatioField
 from sorl.thumbnail import ImageField
+from urllib.request import urlopen, HTTPError
+from django.template.defaultfilters import slugify
 
+from django.core.files.base import ContentFile
 
 class Profile(models.Model):
     """
@@ -14,11 +17,11 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     phone_number = models.CharField(max_length=20, blank=True)
     country = CountryField(blank=True)
-    about = models.TextField(max_length=500, blank=True)
-    facebook = models.CharField(max_length=20, blank=True)
+    about = models.TextField(max_length=500, blank=True, default='Tell something about you...')
+    facebook = models.CharField(max_length=500, blank=True)
     instagram = models.CharField(max_length=20, blank=True)
     twitter = models.CharField(max_length=20, blank=True)
-    file = ImageField(upload_to='uploaded_images', blank=True, )
+    file = ImageField(upload_to='uploaded_images', blank=True )
     firstbook = ImageField(upload_to='uploaded_images', blank=True)
     bookname = models.CharField(max_length=200, blank=True)
     bookgenre = models.CharField(max_length=200, blank=True)
@@ -33,6 +36,8 @@ class Profile(models.Model):
             return self.file.url 
          
         return default_path
+
+    
         
     @property
     def firstbook_url(self, default_path="/static/assets/img/faces/face-0.jpg"):
@@ -50,7 +55,7 @@ def create_user_profile(sender, instance, created, **kwargs):
     if created:
         Profile.objects.create(user=instance)
 import pdb
-def save_profile(backend, user, response, *args, **kwargs):
+"""def save_profile(backend, user, response, *args, **kwargs):
      
     if backend.name == 'facebook':
         #"http://graph.facebook.com/%s/picture?type=large" % response['id']
@@ -60,9 +65,44 @@ def save_profile(backend, user, response, *args, **kwargs):
 
         first_name = response.get('first_name')
         last_name = response.get('last_name')
-        email = response.get('email')
+        email = response.get('email')"""
+def save_profile(backend, user, response, *args, **kwargs):
+    #pdb.set_trace()
+    
+    if user:
+        if kwargs['is_new']:
+            attrs = {'user': user}
+            if backend.name == 'facebook':
+                print("new user")
+                profile = Profile.objects.get(user = user)
+                url = "http://graph.facebook.com/%s/picture?type=large" % response['id']
+                avatar = urlopen(url)
+                user.profile.file.save(slugify(user.username + " social") + '.jpg', 
+                        ContentFile(avatar.read()))                
+                user.profile.facebook = response.get('link')
+                user.profile.facebook = user.profile.facebook[25:]
+                user.profile.save()
+
+
+        else:
+            print("old user")
+            profile = Profile.objects.get(user = user)
+ 
+            profile.save()
+        """profile = Profile.objects.get(user=user)
+        #if not profile.file:
+        url = "http://graph.facebook.com/%s/picture?type=large" % response['id']
+        avatar = urlopen(url)
+        profile.file.save(slugify(user.username + " social") + '.jpg', 
+                        ContentFile(avatar.read())) 
+        #if not profile.facebook:  
+        profile.facebook = response['link']
+        profile.facebook = profile.facebook[25:]
+        profile.about = response['email']
+        profile.save()"""       
+
         
-        
+            
 
 @receiver(post_save, sender=User)
 def save_user_profile(sender, instance, **kwargs):

@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login, update_session_auth_hash
 from django.contrib.auth.models import User
 from django.contrib.sites.shortcuts import get_current_site
+from django.contrib.auth.forms import AdminPasswordChangeForm
 from django.core.mail import EmailMessage
 from django.db import transaction
 from django.http import HttpResponse
@@ -151,8 +152,13 @@ def update_profile(request):
 @login_required
 @transaction.atomic
 def change_password(request):
+    if request.user.has_usable_password():
+        PasswordForm = PasswordChangeForm
+    else:
+        PasswordForm = AdminPasswordChangeForm
+
     if request.method == 'POST':
-        form = PasswordChangeForm(request.user, request.POST)
+        form = PasswordForm(request.user, request.POST)
         if form.is_valid():
             user = form.save()
             update_session_auth_hash(request, user)  # Important!
@@ -161,7 +167,7 @@ def change_password(request):
         else:
             messages.error(request, 'Please correct the error below.')
     else:
-        form = PasswordChangeForm(request.user)
+        form = PasswordForm(request.user)
     return render(request, 'registration/password.html', {
         'form': form
     })

@@ -67,13 +67,13 @@ class EditForm(forms.ModelForm):
         self.fields['username'].label = ''
         self.fields['username'].widget.attrs={
             'class':'form-control border-input',
-            'readonly': True
+            #'readonly': True
             }
 
         self.fields['email'].label = ''
         self.fields['email'].widget.attrs={
             'class':'form-control border-input',
-            'readonly': True
+            #'readonly': True
             }
 
 class ProfileForm(forms.ModelForm):
@@ -247,3 +247,4 @@ class PasswordChangeForm(PasswordChangeForm):
     class Meta:
         model = User
         fields = ('password',)
+        
