@@ -43,7 +43,7 @@
 <span class="icon-bar"></span>
 </button>
 </div>
-{% if request.user.about %}
+{% if request.user.profile.about %}
 <div class="collapse navbar-collapse">
 <ul class="nav navbar-nav navbar-right">
 <li>
@@ -68,7 +68,7 @@ Back to profile
 
 <div class="col-md-8 col-md-offset-2">
 <div class="card-header">
-{% if request.user.about %}
+{% if request.user.profile.about %}
 <h4 class="card-title">Edit Profile</h4>
 {% endif %}
 </div>
@@ -177,7 +177,11 @@ Back to profile
 <div class="col-md-4">
 <div class="form-group">
 <br/>
+{% if request.user.profile.about %}
 <button type="submit" class="btn btn-info btn-fill btn-wd">Update Profile</button>
+{% else %}
+<button type="submit" class="btn btn-info btn-fill btn-wd">Create Profile</button>
+{% endif %}
 </div>
 </div>
 </div>
