@@ -40,6 +40,7 @@ class UserForm(forms.ModelForm):
         #if self.fields['username'].error_messages is not None:
         #    attrs['class'] = 'errors'
         self.fields['username'].label = ''
+        
         self.fields['username'].widget.attrs={
             'class':'form-control',
 

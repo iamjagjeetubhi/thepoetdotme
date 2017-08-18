@@ -17,7 +17,7 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     phone_number = models.CharField(max_length=20, blank=True)
     country = CountryField(blank=True)
-    about = models.TextField(max_length=500, blank=True, default='Tell something about you...')
+    about = models.TextField(max_length=500, blank=True)
     facebook = models.CharField(max_length=500, blank=True)
     instagram = models.CharField(max_length=20, blank=True)
     twitter = models.CharField(max_length=20, blank=True)
@@ -51,7 +51,9 @@ class Profile(models.Model):
 def create_user_profile(sender, instance, created, **kwargs):
     """
     Create Profile object whenever new User object is created.
+
     """
+    instance.username = instance.username.lower()
     if created:
         Profile.objects.create(user=instance)
 import pdb
@@ -82,13 +84,46 @@ def save_profile(backend, user, response, *args, **kwargs):
                 user.profile.facebook = response.get('link')
                 user.profile.facebook = user.profile.facebook[25:]
                 user.profile.save()
-
+            if backend.name == 'google-oauth2':
+                print("new user")
+                profile = Profile.objects.get(user = user)
+                if response.get('image') and response['image'].get('url'):
+                    url = response['image'].get('url')
+                    url = url.replace("?sz=50","?sz=200")
+                    avatar = urlopen(url)
+                    user.profile.file.save(slugify(user.username + " social") + '.jpg', 
+                        ContentFile(avatar.read())) 
+                user.first_name = response['name']['givenName']
+                user.last_name = response['name']['familyName']
+                user.email = response['emails'][0]['value']
+                user.profile.save()
 
         else:
             print("old user")
             profile = Profile.objects.get(user = user)
- 
-            profile.save()
+            if backend.name == 'facebook':
+                #pdb.set_trace()
+                if not user.profile.file:
+                    url = "http://graph.facebook.com/%s/picture?type=large" % response['id']
+                    avatar = urlopen(url)
+                    user.profile.file.save(slugify(user.username + " social") + '.jpg', 
+                        ContentFile(avatar.read()))
+                if not user.profile.facebook:
+                    user.profile.facebook = response['link']
+                    user.profile.facebook = user.profile.facebook[25:]
+                user.profile.save()
+            if backend.name == 'google-oauth2':
+                print("google user")
+                if not user.profile.file:
+                    if response.get('image') and response['image'].get('url'):
+                        url = response['image'].get('url')
+                        url = url.replace("?sz=50","?sz=200")
+                        avatar = urlopen(url)
+                        user.profile.file.save(slugify(user.username + " social") + '.jpg', 
+                            ContentFile(avatar.read()))
+                #pdb.set_trace()
+
+            user.profile.save()
         """profile = Profile.objects.get(user=user)
         #if not profile.file:
         url = "http://graph.facebook.com/%s/picture?type=large" % response['id']
@@ -109,6 +144,7 @@ def save_user_profile(sender, instance, **kwargs):
     """
     Update Profile object whenever new User object is updated.
     """
+
     instance.profile.save()
 
 

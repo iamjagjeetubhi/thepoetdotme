@@ -1,0 +1,12 @@
+#INSTALLATION
+1) Enable virtual environment
+2) pip install django
+3) pip install django_countries
+4) pip install django-avatar
+5) pip install easy_thumbnails
+6) pip install sorl-thumbnail
+7) pip install social-auth-app-django
+8) pip install mysqlclient
+9) pip install django-image-cropping
+10) pip install python-social-auth
+11) pip install pyjwkest

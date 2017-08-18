@@ -59,7 +59,8 @@ AUTHENTICATION_BACKENDS = (
     'social_core.backends.github.GithubOAuth2',
     'social_core.backends.twitter.TwitterOAuth',
     'social_core.backends.facebook.FacebookOAuth2',
-
+    'social_core.backends.instagram.InstagramOAuth2',
+    'social_core.backends.google.GoogleOAuth2',
     'django.contrib.auth.backends.ModelBackend',
 )
 
@@ -163,7 +164,19 @@ USE_L10N = True
 
 USE_TZ = True
 
+#INSTAGRAM
+SOCIAL_AUTH_INSTAGRAM_KEY = '34cd688502cd4f6e829b8312b3833d89'
+SOCIAL_AUTH_INSTAGRAM_SECRET = 'c56352b50a36423fb5631b61719a027d'
+SOCIAL_AUTH_INSTAGRAM_AUTH_EXTRA_ARGUMENTS = {'scope': 'likes comments relationships'}
 
+#GOOGLE
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '693601888040-42rsmq07nfvla15tm5dcg3d2blj2cr37.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'etZ_eUzUvtk9bHWdUlSsnMGP'
+
+SOCIAL_AUTH_GOOGLE_OAUTH_SCOPE = 'https://www.googleapis.com/auth/userinfo.profile'
+
+
+#FACEBOOK
 SOCIAL_AUTH_FACEBOOK_KEY = '140406389887930'
 SOCIAL_AUTH_FACEBOOK_SECRET = 'd4643d474f8b930bfa539cc3d4060404'
 SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
@@ -174,6 +187,8 @@ SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {
 
 SOCIAL_AUTH_URL_NAMESPACE = 'social'
 SOCIAL_AUTH_FACEBOOK_API_VERSION = '2.9'
+
+SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/accounts/edit_profile/'
 # Serving static files in development
 # https://docs.djangoproject.com/en/1.10/howto/static-files/n
 
@@ -183,7 +198,7 @@ STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 
 LOGIN_URL = '/accounts/login/'
-LOGIN_REDIRECT_URL = '/accounts/profile/'
+#LOGIN_REDIRECT_URL = '/accounts/profile/'
 
 # Email server configuration
 
