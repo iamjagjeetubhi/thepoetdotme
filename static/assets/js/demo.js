@@ -537,6 +537,14 @@ demo = {
                     confirmButtonClass: "btn btn-success btn-fill",
                     type: "success"
                 });
+      }else if(type == 'password-changed'){
+              swal({
+                    title: "Congratulations!",
+                    text: "Your password has been changed!",
+                    buttonsStyling: false,
+                    confirmButtonClass: "btn btn-success btn-fill",
+                    type: "success"
+                });
 
     	}else if(type == 'warning-message-and-confirmation'){
             swal({
