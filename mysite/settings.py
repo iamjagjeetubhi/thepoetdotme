@@ -41,6 +41,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
+
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
@@ -62,6 +63,7 @@ AUTHENTICATION_BACKENDS = (
     'social_core.backends.instagram.InstagramOAuth2',
     'social_core.backends.google.GoogleOAuth2',
     'django.contrib.auth.backends.ModelBackend',
+    
 )
 
 SOCIAL_AUTH_PIPELINE = (
@@ -198,7 +200,7 @@ STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 
 LOGIN_URL = '/accounts/login/'
-#LOGIN_REDIRECT_URL = '/accounts/profile/'
+LOGIN_REDIRECT_URL = '/accounts/edit_profile/'
 
 # Email server configuration
 

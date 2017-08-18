@@ -53,6 +53,7 @@ def activate(request, uidb64, token):
         user = None
     if user is not None and account_activation_token.check_token(user, token):
         user.is_active = True
+        user.backend='django.contrib.auth.backends.ModelBackend'
         user.save()
         login(request, user)
         return render(request, 'accounts/activation_completed.html')
@@ -116,6 +117,7 @@ def save_profile(backend, user, response, *args, **kwargs):
 @login_required
 @transaction.atomic
 def update_profile(request):
+    edit_form = None
     if request.method == 'POST':
         user_form = UserForm(request.POST, instance=request.user)
         profile_form = ProfileForm(request.POST, request.FILES, instance=request.user.profile,)
