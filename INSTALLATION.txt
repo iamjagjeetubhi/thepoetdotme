@@ -10,3 +10,11 @@
 9) pip install django-image-cropping
 10) pip install python-social-auth
 11) pip install pyjwkest
+
+colors
+edit profile -- orange
+edit book -- green
+change password -- red
+login page -- green
+signup -- azure
+email pending -- orange

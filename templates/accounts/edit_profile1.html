@@ -48,17 +48,56 @@
 <ul class="nav navbar-nav navbar-right">
 <li>
 <a href="{% url 'view_profile' %}" class="btn">
-Back to profile
+View Profile
 </a>
 </li>
+<li>
+<a class="btn btn-rotate" href="{% url 'first_book' %}">
+      <span class="btn-label">
+ <i class="ti-book"></i>
+</span>
+{% if request.user.profile.bookname %}
+Update Book
+{% else %}
+Add a Book
+{% endif %}
+  </a>
+ </li>
+
+<li>
+
+      <a href="#" class="btn dropdown-toggle btn-rotate" data-toggle="dropdown">
+      <span class="btn-label">
+        <i class="ti-settings"></i>
+            </span>
+          Setting
+          <b class="caret"></b>
+      </a>
+      <ul class="dropdown-menu">
+      
+
+    {% if request.user.has_usable_password %}
+    <li><a href="{% url 'change_password' %}">Change password</a></li>
+    {% else %}
+    <li><a href="{% url 'change_password' %}">Set a password</a></li>
+    {% endif %}
+    <li><a href="{% url 'logout' %}">Logout</a></li>
+    
+    
+        
+      </ul>
+
+</li>
+
 </ul>
 </div>
 {% endif %}
+
 </div>
 </nav>
 
 <div class="wrapper wrapper-full-page">
-<div class="full-page login-page" data-color="green">
+<div class="full-page login-page" data-color="orange">
 <!--   you can change the color of the filter page using: data-color="blue | azure | green | orange | red | purple" -->
 
 
@@ -218,10 +257,10 @@ Back to profile
         <div class="modal-footer">
           <div class="btn-group pull-left" role="group">
             <button type="button" class="btn btn-default js-zoom-in">
-              <span class="glyphicon glyphicon-zoom-in"></span>
+              <span class="ti-plus"></span>
             </button>
             <button type="button" class="btn btn-default js-zoom-out">
-              <span class="glyphicon glyphicon-zoom-out"></span>
+              <span class="ti-minus"></span>
             </button>
           </div>
           <button type="button" class="btn btn-default" data-dismiss="modal">Nevermind</button>

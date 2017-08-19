@@ -49,26 +49,13 @@
 <div class="collapse navbar-collapse">
 <ul class="nav navbar-nav navbar-right">
 
-<div class="dropdown">
-      <a href="#" class="btn dropdown-toggle" data-toggle="dropdown">
-          Setting
-          <b class="caret"></b>
-      </a>
-      <ul class="dropdown-menu">
-      
-    <li><a href="{% url 'update_profile' %}">Edit profile</a></li>
-    <li><a href="{% url 'first_book' %}">Add your book</a></li> 
-    {% if request.user.has_usable_password %}
-    <li><a href="{% url 'change_password' %}">Change password</a></li>
-    {% else %}
-    <li><a href="{% url 'change_password' %}">Set a password</a></li>
-    {% endif %}
-    <li><a href="{% url 'logout' %}">Logout</a></li>
-    
-    
-        
-      </ul>
-</div>
+<li>
+<a href="{% url 'update_profile' %}" class="btn">
+Back to Edit Profile
+</a>
+</li>
+<li>
+
 
 </ul>
 
@@ -151,25 +138,39 @@
 <hr>
 
 <div class="text-center">
+<a href="mailto:{{ request.user.email }}"/>
+<button class="btn btn-icon btn-email">
+    <i class="ti-email"></i>
+</button></a>
 
+{% if request.user.profile.facebook %}
+<a href="https://www.facebook.com/{{ request.user.profile.facebook }}"/>
+{% else %}
+<a href="#">
+{% endif %}
+<button class="btn btn-icon btn-facebook">
+    <i class="ti-facebook"> </i>
+</button></a>
+
+{% if request.user.profile.instagram %}
+<a href="https://www.instagram.com/{{ request.user.profile.instagram }}"/>
+{% else %}
+<a href="#">
+{% endif %}
+<button class="btn btn-icon btn-google">
+    <i class="ti-instagram"></i>
+</button></a>
+
+{% if request.user.profile.twitter %}
 <a href="https://twitter.com/{{ request.user.profile.twitter }}"/>
+{% else %}
+<a href="#">
+{% endif %}
 <button class="btn btn-icon btn-twitter">
     <i class="ti-twitter"></i>
 </button>
 </a>
 
-<a href="https://www.facebook.com/{{ request.user.profile.facebook }}"/>
-<button class="btn btn-icon btn-facebook">
-    <i class="ti-facebook"> </i>
-</button></a>
-<a href="mailto:{{ request.user.email }}"/>
-<button class="btn btn-icon btn-email">
-    <i class="ti-email"></i>
-</button></a>
-<a href="https://www.instagram.com/{{ request.user.profile.instagram }}"/>
-<button class="btn btn-icon btn-instagram">
-    <i class="ti-instagram"></i>
-</button></a>
 </div>
 </div>
 
