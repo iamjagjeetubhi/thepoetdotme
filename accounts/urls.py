@@ -5,6 +5,7 @@ from . import views
 urlpatterns = [
 #    url(r'^(?P<username>\w+)/$', views.myprofileview, name="detail_profile"),
     url(r'^profile/$', views.view_profile, name='view_profile'),
+    url(r'^userpage/$', views.userpage, name='userpage'),
     url(r'^first_book/$', views.first_book, name='first_book'),
     url(r'^edit_profile/$', views.update_profile, name='update_profile'),
     url(r'^signup/$', views.signup, name='signup'),

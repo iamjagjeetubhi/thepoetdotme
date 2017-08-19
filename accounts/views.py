@@ -60,6 +60,14 @@ def activate(request, uidb64, token):
     else:
         return HttpResponse('Activation link is invalid!')
 
+@login_required
+@transaction.atomic
+def userpage(request):
+    username = None
+    if request.user.profile.about:
+       return redirect('view_profile')
+    else:
+       return redirect('update_profile')
 
 @login_required
 def view_profile(request):
@@ -122,13 +130,10 @@ def update_profile(request):
         user_form = UserForm(request.POST, instance=request.user)
         profile_form = ProfileForm(request.POST, request.FILES, instance=request.user.profile,)
         form = PhotoForm(request.POST, request.FILES, instance=request.user.profile)
-        first_book = FirstBookForm(request.POST, request.FILES, instance=request.user.profile)
         if form.is_valid():
             form.save()
             return redirect('update_profile')
-        if first_book.is_valid():
-            first_book.save()
-            return redirect('update_profile')
+
         if user_form.is_valid() and profile_form.is_valid():
             user_form.save()
             profile_form.save()
@@ -165,7 +170,7 @@ def change_password(request):
             user = form.save()
             update_session_auth_hash(request, user)  # Important!
             messages.success(request, 'Your password was successfully updated!')
-            return redirect('update_profile')
+            return redirect('view_profile')
         else:
             messages.error(request, 'Please correct the error below.')
     else:
@@ -186,7 +191,7 @@ def first_book(request):
         if book_fields_form.is_valid():
             book_fields_form.save()
             messages.success(request, _('Your profile was successfully updated!'))
-            return redirect('update_profile')
+            return redirect('view_profile')
     else:
         form = FirstBookForm(instance=request.user.profile)
         book_fields_form = BookFieldsForm(instance=request.user.profile)

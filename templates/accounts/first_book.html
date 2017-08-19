@@ -46,8 +46,8 @@
 <div class="collapse navbar-collapse">
 <ul class="nav navbar-nav navbar-right">
 <li>
-<a href="{% url 'update_profile' %}" class="btn">
-Back to edit profile
+<a href="{% url 'view_profile' %}" class="btn">
+Back to profile
 </a>
 </li>
 </ul>
@@ -113,9 +113,15 @@ Back to edit profile
                       
 
                       <div class="text-center">
+                {% if request.user.profile.bookname %}
                     <button type="submit" class="btn btn-info btn-fill btn-wd">Update Details</button>
+
+                    {% else %}
+
+                     <button type="submit" class="btn btn-info btn-fill btn-wd">Add Details</button>
                       </div>
 
+                        {% endif %}
                       {% else %}
                       <div class="col-md-8">
                                      
@@ -158,10 +164,10 @@ Back to edit profile
         <div class="modal-footer">
           <div class="btn-group pull-left" role="group">
             <button type="button" class="btn btn-default js-zoom-in">
-              <span class="glyphicon glyphicon-zoom-in"></span>
+              <span class="ti-plus"></span>
             </button>
             <button type="button" class="btn btn-default js-zoom-out">
-              <span class="glyphicon glyphicon-zoom-out"></span>
+              <span class="ti-minus"></span>
             </button>
           </div>
           <button type="button" class="btn btn-default" data-dismiss="modal">Nevermind</button>

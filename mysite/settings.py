@@ -190,7 +190,7 @@ SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {
 SOCIAL_AUTH_URL_NAMESPACE = 'social'
 SOCIAL_AUTH_FACEBOOK_API_VERSION = '2.9'
 
-SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/accounts/edit_profile/'
+SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/accounts/userpage/'
 # Serving static files in development
 # https://docs.djangoproject.com/en/1.10/howto/static-files/n
 
@@ -200,7 +200,7 @@ STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 
 LOGIN_URL = '/accounts/login/'
-LOGIN_REDIRECT_URL = '/accounts/edit_profile/'
+LOGIN_REDIRECT_URL = '/accounts/userpage/'
 
 # Email server configuration
 
