@@ -17,6 +17,7 @@ urlpatterns = [
     url(r'^reset/done/$', auth_views.password_reset_complete, name='password_reset_complete'),
 
     url(r'^(?P<username>\w+)/$', views.myprofileview, name="myprofileview"),
+    url(r'^$', views.index, name="indexview"),
     
     url(r'^admin/', admin.site.urls),
     url(r'^accounts/', include('accounts.urls')),

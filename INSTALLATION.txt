@@ -11,6 +11,10 @@
 10) pip install python-social-auth
 11) pip install pyjwkest
 
+sudo apt-get install libapache2-mod-wsgi
+sudo apt install libapache2-mod-wsgi-py3
+
+
 colors
 edit profile -- orange
 edit book -- green

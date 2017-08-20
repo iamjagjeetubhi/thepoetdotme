@@ -5708,6 +5708,12 @@ strong {
   -ms-transition: all 150ms linear;
   transition: all 150ms linear;
 }
+
+.navbar .navbar-nav > li > button#homepage {
+  border-radius: 2px;
+  border-width: 1px;
+  margin-right: 5px;
+}
 .btn:hover, .btn:focus, .btn:active, .btn.active, .btn:active:focus, .btn:active:hover, .open > .btn.dropdown-toggle, .open > .btn.dropdown-toggle:focus, .open > .btn.dropdown-toggle:hover,
 .navbar .navbar-nav > li > a.btn:hover,
 .navbar .navbar-nav > li > a.btn:focus,
@@ -10219,7 +10225,7 @@ star {
 
 .wrapper {
   position: relative;
-  top: 0;
+  top: 100px;
   height: 100vh;
 }
 .wrapper.wrapper-full-page {

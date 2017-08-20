@@ -25,6 +25,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'b=cyg=dd2=fbkkij2617pn1t76u=d9jzg5_-*cxqge03xs%sh2'
 #staticfiles
 STATIC_DIR = os.path.join(BASE_DIR, 'static')
+
+STATIC_ROOT = os.path.join(BASE_DIR, "static/")
+
 STATICFILES_DIRS = [STATIC_DIR, ]
 #TEMPLATES
 TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')

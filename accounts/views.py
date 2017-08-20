@@ -60,6 +60,9 @@ def activate(request, uidb64, token):
     else:
         return HttpResponse('Activation link is invalid!')
 
+def index(request):
+    return render(request, 'index.html')
+
 @login_required
 @transaction.atomic
 def userpage(request):
