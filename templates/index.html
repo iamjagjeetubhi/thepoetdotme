@@ -28,6 +28,26 @@
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
     <link href="{% static 'assets/css/themify-icons.css' %}" rel="stylesheet">
+    <style>
+		#particles-js {
+			position: absolute;
+			width: 100%;
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-position: 50% 50%;
+		}
+    </style>
+    <!-- Particles -->
+
+    <script src="{% static 'assets/js/particles.js' %}"></script>
+
+    <script>
+        /* particlesJS.load(@dom-id, @path-json, @callback (optional)); */
+        particlesJS.load('particles-js', "{% static 'assets/particles.json' %}", function() {
+		console.log('callback - particles.js config loaded');
+        });
+
+    </script>
 </head>
 
 <body>
@@ -78,8 +98,8 @@
   </div><!-- /.container-fluid -->
 </nav>
 
-<div class="header-wrapper">
-        <div class="header">
+<div class="header-wrapper" style="z-index:0;">
+        <div class="header" style="z-index:0;">
             <div class="filter"></div>
             <div class="row">
                 <div class="col-xs-2">
@@ -105,7 +125,10 @@
                 </div>
 
         </div>
+
+		<div id="particles-js"></div>
 </div>
+
 <div class="wrapper">
 
     <div class="main">

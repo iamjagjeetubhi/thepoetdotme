@@ -66,12 +66,12 @@ AUTHENTICATION_BACKENDS = (
     'social_core.backends.instagram.InstagramOAuth2',
     'social_core.backends.google.GoogleOAuth2',
     'django.contrib.auth.backends.ModelBackend',
-    
+
 )
 
 SOCIAL_AUTH_PIPELINE = (
 
-   
+
     'social_core.pipeline.social_auth.social_details',
     'social_core.pipeline.social_auth.social_uid',
     'social_core.pipeline.social_auth.auth_allowed',
@@ -111,7 +111,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.media',
-                
+
                 'social_django.context_processors.backends',
                 'social_django.context_processors.login_redirect',
             ],
@@ -128,9 +128,9 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'django_accounts',
+        'NAME': 'thepoetdotme',
         'USER': 'root',
-        'PASSWORD': 'J@gjeet04',
+        'PASSWORD': 'a',
         'HOST': '',
         'PORT': '',
     }
