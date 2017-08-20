@@ -10225,7 +10225,7 @@ star {
 
 .wrapper {
   position: relative;
-  top: 100px;
+  top: 0;
   height: 100vh;
 }
 .wrapper.wrapper-full-page {
