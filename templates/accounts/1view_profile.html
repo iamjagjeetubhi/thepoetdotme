@@ -117,7 +117,7 @@ Add a Book
 
 <h4 class="card-title">{{ request.user.first_name }} {{ request.user.last_name }}
 <br />
-<small><span class="ti-location-arrow"></span> {{ request.user.profile.country.name }}  <img src="{{ request.user.profile.country.flag }}" alt="{{ request.user.profile.country }}"></img></small>
+<small><span class="ti-location-pin"></span> {{ request.user.profile.country.name }}  <img src="{{ request.user.profile.country.flag }}" alt="{{ request.user.profile.country }}"></img></small>
 
 
 </h4>
@@ -381,6 +381,10 @@ $().ready(function(){
 				$('.card').removeClass('card-hidden');
 				}, 700)
 		});
+{% if not request.user.profile.bookname %}
+demo.AddBook('top','left');
+{% endif %}
 </script>
+
 
 </html>

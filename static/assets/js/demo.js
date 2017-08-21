@@ -1003,6 +1003,22 @@ demo = {
         });
 	},
 
+    AddBook: function(from, align){
+      color = Math.floor((Math.random() * 4) + 1);
+
+      $.notify({
+          icon: "ti-book",
+          message: "You can also add one of your book."
+        },{
+            type: type[3],
+            timer: 4000,
+            placement: {
+                from: from,
+                align: align
+            }
+        });
+  },
+
 
     SignUpUsername: function(from, align){
       	color = Math.floor((Math.random() * 4) + 1);

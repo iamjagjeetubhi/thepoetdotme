@@ -110,7 +110,8 @@ class ProfileForm(forms.ModelForm):
 
         self.fields['country'].required = True
         self.fields['country'].widget.attrs={
-            'class':'btn dropdown-toggle',
+            'class':'selectpicker form-control',
+
             
             
             }
