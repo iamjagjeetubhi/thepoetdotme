@@ -22,3 +22,10 @@ change password -- red
 login page -- green
 signup -- azure
 email pending -- orange
+
+things to do
+book cover pic
+title for user
+clipboard
+404 error page
+decouple

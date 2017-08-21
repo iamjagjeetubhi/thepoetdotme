@@ -119,10 +119,23 @@ Add a Book
 
 <h4 class="card-title">{{ request.user.first_name }} {{ request.user.last_name }}
 <br />
-<small>thpoet.me/{{ request.user }}<br><span class="ti-location-pin"></span> {{ request.user.profile.country.name }}  <img src="{{ request.user.profile.country.flag }}" alt="{{ request.user.profile.country }}"></img></small>
+<small>
+<span class="ti-location-pin"></span> {{ request.user.profile.country.name }}  <img src="{{ request.user.profile.country.flag }}" alt="{{ request.user.profile.country }}"></img></small>
 
 
 </h4>
+<div  class="alert alert-success" id="copy"> <p>thepoet.me/{{ request.user }}
+    
+
+<button type="button" id="copydiv" class="btn btn-info btn-simple btn-rotate" data-clipboard-action="copy" data-clipboard-target="#copy">
+                <span class="btn-label">
+                        <i class="ti-files"></i>
+                            </span>Copy profile link</button>
+
+</p>
+
+
+    </div>
 
 <p class="description text-center">
 {{ request.user.profile.about }}
@@ -312,7 +325,7 @@ Add a Book
 <!-- Paper Dashboard PRO Core javascript and methods for Demo purpose -->
 <script src="{% static 'assets/js/paper-dashboard.js' %}"></script>
 <script src="{% static 'assets/js/cropper.min.js' %}"></script>
-
+<script src="{% static 'assets/js/clipboard.min.js' %}"></script>
 
 <!-- Paper Dashboard PRO DEMO methods, don't include it in your project! -->
 <script src="{% static 'assets/js/demo.js' %}"></script>
@@ -387,6 +400,25 @@ $().ready(function(){
 demo.AddBook('top','left');
 {% endif %}
 </script>
+ <script>
+    var clipboard = new Clipboard('#copydiv');
 
+    clipboard.on('success', function(e) {
+        console.log(e);
+    });
+
+    clipboard.on('error', function(e) {
+        console.log(e);
+    });
+
+
+     
+        $("#copydiv").click(function () {
+          
+            $(this).text(function(i, v){
+               return v === 'Copied!' ? 'Copy Again' : 'Copied!'
+            })
+        });
+    </script>
 
 </html>
