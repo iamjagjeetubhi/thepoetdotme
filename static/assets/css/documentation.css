@@ -67,7 +67,7 @@ pre.prettyprint{
     z-index: 3;
 }
 .header-wrapper .header {
-    background-color: #ff8f5e;
+    background: rgba(0, 0, 0, 0) linear-gradient(to bottom, #ff8f5e 0%, #943bea 100%) repeat scroll 0 0 / 150% 150%; 
     background-position: center center;
     background-size: cover;
     height: 100%;
@@ -77,7 +77,7 @@ pre.prettyprint{
     z-index: 1;
 }
 .header-wrapper .header .filter::after {
-/*     background: rgba(0, 0, 0, 0) linear-gradient(to bottom, #9368e9 0%, #943bea 100%) repeat scroll 0 0 / 150% 150%;     */
+/*     background: rgba(0, 0, 0, 0) linear-gradient(to bottom, #ff8f5e 0%, #943bea 100%) repeat scroll 0 0 / 150% 150%;     */
     content: "";
     display: block;
     height: 100%;
