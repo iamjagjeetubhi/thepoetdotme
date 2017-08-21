@@ -10,7 +10,7 @@
 <link rel="icon" type="image/png" sizes="96x96" href="{% static 'assets/img/favicon.png' %}">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-<title>Paper Dashboard PRO by Creative Tim</title>
+<title>thepoet.me</title>
 
 <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
 <meta name="viewport" content="width=device-width" />
@@ -45,6 +45,8 @@
 <span class="icon-bar "></span>
 <span class="icon-bar"></span>
 </button>
+  <a class="navbar-brand" href="https://thepoet.me">thepoet.me</a>
+
 </div>
 
 <div class="collapse navbar-collapse">
@@ -117,7 +119,7 @@ Add a Book
 
 <h4 class="card-title">{{ request.user.first_name }} {{ request.user.last_name }}
 <br />
-<small><span class="ti-location-pin"></span> {{ request.user.profile.country.name }}  <img src="{{ request.user.profile.country.flag }}" alt="{{ request.user.profile.country }}"></img></small>
+<small>thpoet.me/{{ request.user }}<br><span class="ti-location-pin"></span> {{ request.user.profile.country.name }}  <img src="{{ request.user.profile.country.flag }}" alt="{{ request.user.profile.country }}"></img></small>
 
 
 </h4>

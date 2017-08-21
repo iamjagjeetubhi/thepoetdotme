@@ -63,7 +63,7 @@
         <span class="icon-bar bar2"></span>
         <span class="icon-bar bar3"></span>
       </button>
-      <a href="http://www.creative-tim.com">
+      <a href="https://thepoet.me">
            <div class="logo-container">
                 
                 <div class="brand">
@@ -76,8 +76,8 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav navbar-right logo-container">
-            <li id="signup">
-            <button type="button" id="homepage" class="btn btn-wd btn-neutral btn-move-right">
+            <li>
+            <button type="button" onclick="location.href='{% url 'signup' %}';" id="homepage" class="btn btn-wd btn-neutral btn-move-right">
               Get your free page
              <span class="btn-label">
             <i class="ti-angle-right"></i>
@@ -86,8 +86,8 @@
 
                 
             </li>
-            <li id="login">
-                <button type="button" id="homepage" class="btn btn-wd btn-neutral btn-move-right">
+            <li>
+                <button type="button" onclick="location.href='{% url 'login' %}';" id="homepage" class="btn btn-wd btn-neutral btn-move-right">
                  Login
                 <span class="btn-label">
                     <i class="ti-angle-right"></i>
@@ -107,11 +107,11 @@
                 
                 
             <div class="title-container text-center">
-                    <h2 style="font-family: 'Raleway', sans-serif; margin: 15px;">Poets use thepoet.me as their identity to grow followers and clients.</h2>
+                    <h2 style="font-family: 'Raleway', sans-serif; margin: 15px;">Grow audience and present yourself with one link.</h2>
                     
                     
             <br>
-            <button type="button" id="homepage" class="btn btn-wd btn-fill btn-neutral btn-move-right">
+            <button type="button" onclick="location.href='{% url 'signup' %}';" class="btn btn-wd btn-fill btn-neutral btn-move-right">
               Get your free page
              <span class="btn-label">
             <i class="ti-angle-right"></i>
@@ -124,9 +124,9 @@
             <p> or signup with</p>
             <div class="btn-group">
             
-    <button type="button" class="btn btn-neutral"><i class="ti-facebook"> </i></button>
+    <button onclick="location.href='/oauth/login/facebook/';" type="button" class="btn btn-neutral"><i class="ti-facebook"> </i></button>
                                                
-    <button type="button" class="btn btn-neutral"><i class="ti-google"> </i></button>
+    <button onclick="location.href='/oauth/login/google-oauth2/';" type="button" class="btn btn-neutral"><i class="ti-google"> </i></button>
                                             </div></div>
                                     
             </div>
@@ -241,13 +241,7 @@
             }, 700)
         });
 
-            $( "#signup" ).click(function() {
-                location.href="{% url 'signup' %}";
-                });
-
-            $( "#login" ).click(function() {
-                location.href="{% url 'login' %}";
-                });
+           
 				</script>
 
 				

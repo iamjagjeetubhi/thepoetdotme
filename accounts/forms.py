@@ -110,8 +110,8 @@ class ProfileForm(forms.ModelForm):
 
         self.fields['country'].required = True
         self.fields['country'].widget.attrs={
-            'class':'selectpicker form-control',
-
+            'class':'form-control',
+            #'style':'max-width:90%;',
             
             
             }
