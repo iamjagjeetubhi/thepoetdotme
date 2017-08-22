@@ -27,7 +27,7 @@ SECRET_KEY = config('SECRET_KEY')
 #staticfiles
 STATIC_DIR = os.path.join(BASE_DIR, 'static')
 
-#STATIC_ROOT = os.path.join(BASE_DIR, "static/")
+STATIC_ROOT = os.path.join(BASE_DIR, "static/")
 
 STATICFILES_DIRS = [STATIC_DIR, ]
 #TEMPLATES
@@ -35,7 +35,8 @@ TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG', cast=bool)
+#DEBUG = config('DEBUG', cast=bool)
+DEBUG = False
 
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=lambda v: [s.strip() for s in v.split(',')])
 
