@@ -84,7 +84,7 @@ def view_profile(request):
     return render(request, 'accounts/1view_profile.html',  {'form': form,})
 
 def myprofileview(request, username):
-    user = User.objects.get(username = username)
+    user = get_object_or_404(User, username = username)
     profilephoto = user.profile.photo_url
     email = user.email
     firstname = user.first_name

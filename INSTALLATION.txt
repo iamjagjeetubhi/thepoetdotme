@@ -25,7 +25,7 @@ signup -- azure
 email pending -- orange
 
 things to do
-username and email error
+
 
 
 
