@@ -8,7 +8,7 @@ from accounts import views
 
 
 from django.contrib.auth import views as auth_views
-handler404 = 'accounts.views.userpage'
+handler404 = 'accounts.views.index'
 
 urlpatterns = [
 	url(r'^password_reset/$', auth_views.password_reset, name='password_reset'),
