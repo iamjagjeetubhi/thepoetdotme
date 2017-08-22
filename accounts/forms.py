@@ -40,10 +40,15 @@ class UserForm(forms.ModelForm):
         #if self.fields['username'].error_messages is not None:
         #    attrs['class'] = 'errors'
         self.fields['username'].label = ''
-        
         self.fields['username'].widget.attrs={
-            'class':'form-control',
+            'class':'form-control border-input',
+            #'readonly': True
+            }
 
+        self.fields['email'].label = ''
+        self.fields['email'].widget.attrs={
+            'class':'form-control border-input',
+            #'readonly': True
             }
         self.fields['first_name'].required = True
         self.fields['first_name'].widget.attrs={
@@ -134,10 +139,6 @@ class BookFieldsForm(forms.ModelForm):
             }
 
         
-        self.fields['bookurl'].widget.attrs={
-            'placeholder': 'https://',
-            'class':'form-control border-input',
-            }
 
 class PhotoForm(forms.ModelForm):
     file = forms.ImageField(widget=forms.FileInput)

@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
+from decouple import config
 from django.core.urlresolvers import reverse_lazy
 
 
@@ -22,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'b=cyg=dd2=fbkkij2617pn1t76u=d9jzg5_-*cxqge03xs%sh2'
+SECRET_KEY = config('SECRET_KEY')
 #staticfiles
 STATIC_DIR = os.path.join(BASE_DIR, 'static')
 
@@ -34,9 +35,10 @@ TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config('DEBUG', cast=bool)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=lambda v: [s.strip() for s in v.split(',')])
+
 
 
 # Application definition
@@ -128,9 +130,9 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'django_accounts',
-        'USER': 'root',
-        'PASSWORD': 'J@gjeet04',
+        'NAME': config('DB_NAME'),
+        'USER': config('DB_USER'),
+        'PASSWORD': config('DB_PASSWORD'),
         'HOST': '',
         'PORT': '',
     }
@@ -170,20 +172,20 @@ USE_L10N = True
 USE_TZ = True
 
 #INSTAGRAM
-SOCIAL_AUTH_INSTAGRAM_KEY = '34cd688502cd4f6e829b8312b3833d89'
-SOCIAL_AUTH_INSTAGRAM_SECRET = 'c56352b50a36423fb5631b61719a027d'
+SOCIAL_AUTH_INSTAGRAM_KEY = config('INSTAGRAM_KEY')
+SOCIAL_AUTH_INSTAGRAM_SECRET = config('INSTAGRAM_SECRET')
 SOCIAL_AUTH_INSTAGRAM_AUTH_EXTRA_ARGUMENTS = {'scope': 'likes comments relationships'}
 
 #GOOGLE
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '693601888040-42rsmq07nfvla15tm5dcg3d2blj2cr37.apps.googleusercontent.com'
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'etZ_eUzUvtk9bHWdUlSsnMGP'
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = config('GOOGLE_OAUTH2_KEY')
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = config('GOOGLE_OAUTH2_SECRET')
 
 SOCIAL_AUTH_GOOGLE_OAUTH_SCOPE = 'https://www.googleapis.com/auth/userinfo.profile'
 
 
 #FACEBOOK
-SOCIAL_AUTH_FACEBOOK_KEY = '140406389887930'
-SOCIAL_AUTH_FACEBOOK_SECRET = 'd4643d474f8b930bfa539cc3d4060404'
+SOCIAL_AUTH_FACEBOOK_KEY = config('FACEBOOK_KEY')
+SOCIAL_AUTH_FACEBOOK_SECRET = config('FACEBOOK_SECRET')
 SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
 SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {
   'locale': 'ru_RU',
@@ -208,7 +210,7 @@ LOGIN_REDIRECT_URL = '/accounts/userpage/'
 # Email server configuration
 
 EMAIL_USE_TLS = True
-EMAIL_HOST = 'smtp.gmail.com'  # Eg. smtp.gmail.com
-EMAIL_HOST_USER = 'imjagjeetubhi@gmail.com'  # Eg. user@domain.com
-EMAIL_HOST_PASSWORD = 'J@gjeet04'
-EMAIL_PORT = 587
+EMAIL_HOST = config('EMAIL_HOST')  # Eg. smtp.gmail.com
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')  # Eg. user@domain.com
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+EMAIL_PORT = config('EMAIL_PORT', cast=int)

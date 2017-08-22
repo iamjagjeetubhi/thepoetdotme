@@ -89,7 +89,7 @@ Back to profile
 
                   {% if request.user.profile.firstbook %}
                  <div class="col-md-8">  
-                      <form method="post" enctype="multipart/form-data">
+                      <form method="post" id="allInputsFormValidation" enctype="multipart/form-data">
                             {% csrf_token %}                   
                                  <div class="form-group">
                                       <label>Book Name</label>
@@ -108,7 +108,7 @@ Back to profile
                            <div class="col-md-8">
                          <div class="form-group">
                               <label>Link to Buy</label>
-                              {{ book_fields_form.bookurl }}
+                              <input type="url" name="bookurl" value='{{ book_fields_form.bookurl.value }}' id="id_bookurl" class="form-control border-input" placeholder="https://" required="">
                               </div>        
                                   </div>
                       

@@ -40,7 +40,7 @@ class Profile(models.Model):
     
         
     @property
-    def firstbook_url(self, default_path="/static/assets/img/faces/face-0.jpg"):
+    def firstbook_url(self, default_path="/static/assets/img/background/bookcover.png"):
         if self.firstbook and hasattr(self.firstbook, 'url'):
             return self.firstbook.url
          

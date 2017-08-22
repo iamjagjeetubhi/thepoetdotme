@@ -129,22 +129,24 @@ def save_profile(backend, user, response, *args, **kwargs):
 @transaction.atomic
 def update_profile(request):
     edit_form = None
-    if request.method == 'POST':
+    first_book = None
+  
+    if request.method == 'POST' and 'profile' in request.POST:
         user_form = UserForm(request.POST, instance=request.user)
         profile_form = ProfileForm(request.POST, request.FILES, instance=request.user.profile,)
-        form = PhotoForm(request.POST, request.FILES, instance=request.user.profile)
-        if form.is_valid():
-            form.save()
-            return redirect('update_profile')
-
+        form = PhotoForm(instance=request.user.profile)
         if user_form.is_valid() and profile_form.is_valid():
             user_form.save()
             profile_form.save()
-            
             messages.success(request, _('Your profile was successfully updated!'))
             return redirect('view_profile')
         else:
             messages.error(request, _('Please correct the error below.'))
+    elif request.method == 'POST':
+        form = PhotoForm(request.POST, request.FILES, instance=request.user.profile)
+        if form.is_valid():
+            form.save()
+            return redirect('update_profile')
     else:
         user_form = UserForm(instance=request.user)
         edit_form = EditForm(instance=request.user)

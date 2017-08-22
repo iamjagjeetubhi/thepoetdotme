@@ -143,7 +143,7 @@ Add a Book
 <div class="col-md-6">
 <div class="form-group">
 <label>Username</label>
-{{ edit_form.username }}
+{{ user_form.username }}
 </div>
 </div>
 
@@ -152,7 +152,7 @@ Add a Book
 <div class="col-md-6">
 <div class="form-group">
 <label for="exampleInputEmail1">Email address</label>
-{{ edit_form.email }}
+{{ user_form.email }}
 </div>
 </div>
 </div>
@@ -218,9 +218,9 @@ Add a Book
 <div class="form-group">
 <br/>
 {% if request.user.profile.about %}
-<button type="submit" class="btn btn-info btn-fill btn-wd">Update Profile</button>
+<button type="submit" name="profile" class="btn btn-info btn-fill btn-wd">Update Profile</button>
 {% else %}
-<button type="submit" class="btn btn-info btn-fill btn-wd">Create Profile</button>
+<button type="submit" name="profile" class="btn btn-info btn-fill btn-wd">Create Profile</button>
 {% endif %}
 </div>
 </div>
@@ -265,7 +265,7 @@ Add a Book
             </button>
           </div>
           <button type="button" class="btn btn-default" data-dismiss="modal">Nevermind</button>
-          <button type="button" class="btn btn-primary js-crop-and-upload">Crop and upload</button>
+          <button type="submit" name="photo" class="btn btn-primary js-crop-and-upload">Crop and upload</button>
         </div>
       </div>
     </div>
@@ -418,5 +418,19 @@ Add a Book
             }, 700)
 		});
 	</script>
+   <script type="text/javascript">
+                  
+                var a = '{{ user_form.username.errors }}';
+                var b = '{{ user_form.email.errors }}';
+            {% if user_form.errors %}
+                var c = a.toString()+ b.toString();
+          swal({
+                title: c,
+
+                buttonsStyling: false,
+                confirmButtonClass: "btn btn-success btn-fill"
+            });
+        {% endif %}
+    </script>
 
 </html>
