@@ -1,4 +1,4 @@
-from django.conf.urls import include, url
+from django.conf.urls import include, url, handler404
 from django.contrib import admin
 # Static helper function only for development!
 from django.conf.urls.static import static
@@ -8,6 +8,7 @@ from accounts import views
 
 
 from django.contrib.auth import views as auth_views
+handler404 = 'accounts.views.userpage'
 
 urlpatterns = [
 	url(r'^password_reset/$', auth_views.password_reset, name='password_reset'),
@@ -23,7 +24,6 @@ urlpatterns = [
     url(r'^accounts/', include('accounts.urls')),
     url(r'^oauth/', include('social_django.urls', namespace='social')),
 	url(r'^avatar/', include('avatar.urls')),
-
 ]
 
 if settings.DEBUG is True:
