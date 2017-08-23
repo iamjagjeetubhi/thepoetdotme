@@ -64,7 +64,6 @@ def index(request):
     return render(request, 'index.html')
 
 @login_required
-@transaction.atomic
 def userpage(request):
     username = None
     if request.user.profile.about:
