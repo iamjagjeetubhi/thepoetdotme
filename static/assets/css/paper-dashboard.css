@@ -7623,7 +7623,7 @@ star {
   font-size: 14px;
   margin: 15px 3px;
   line-height: 20px;
-  white-space: nowrap;
+  /*white-space: nowrap;*/
   text-align: center;
 }
 .footer .heart {
