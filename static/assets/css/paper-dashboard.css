@@ -10985,7 +10985,6 @@ star {
   }
   .sidebar .nav-mobile-menu .open .dropdown-menu,
   .off-canvas-sidebar .nav-mobile-menu .open .dropdown-menu {
-    position: static;
     float: none;
     width: auto;
     margin-top: 0;

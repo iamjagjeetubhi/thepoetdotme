@@ -81,6 +81,7 @@ Add a Book
       <ul class="dropdown-menu">
       
 
+
     {% if request.user.has_usable_password %}
     <li><a href="{% url 'change_password' %}">Change password</a></li>
     {% else %}
