@@ -139,9 +139,7 @@ DATABASES = {
         'PASSWORD': config('DB_PASSWORD'),
         'HOST': '',
         'PORT': '',
-        'OPTIONS': {
-                    'charset': 'latin1',
-                    'use_unicode': True, },
+        
     }
 }
 
