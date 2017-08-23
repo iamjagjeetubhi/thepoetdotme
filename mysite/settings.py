@@ -31,7 +31,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, "static/")
 
 STATICFILES_DIRS = [STATIC_DIR, ]
 
-COUNTRIES_FLAG_URL = '/static/assets/img/flags/{code_upper}.png'
+COUNTRIES_FLAG_URL = '/static/assets/img/flags/{code}.gif'
 
 #TEMPLATES
 TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
