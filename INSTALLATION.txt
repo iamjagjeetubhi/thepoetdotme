@@ -6,6 +6,18 @@
 sudo apt-get install libapache2-mod-wsgi
 sudo apt install libapache2-mod-wsgi-py3
 
+#FOR MYSQL
+ALTER TABLE django_accounts.accounts_profile MODIFY COLUMN about VARCHAR(500) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL;
+
+
+ALTER TABLE django_accounts.auth_user MODIFY COLUMN first_name VARCHAR(500) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL;
+
+ALTER TABLE django_accounts.auth_user MODIFY COLUMN last_name VARCHAR(500) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL;
+
+ALTER TABLE django_accounts.accounts_profile MODIFY COLUMN bookgenre VARCHAR(500) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL;
+
+ALTER TABLE django_accounts.accounts_profile MODIFY COLUMN bookname VARCHAR(500) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL;
+
 
 colors
 edit profile -- orange

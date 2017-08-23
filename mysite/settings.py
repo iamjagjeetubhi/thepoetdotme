@@ -139,6 +139,9 @@ DATABASES = {
         'PASSWORD': config('DB_PASSWORD'),
         'HOST': '',
         'PORT': '',
+        'OPTIONS': {
+                    'charset': 'latin1',
+                    'use_unicode': True, },
     }
 }
 
@@ -184,7 +187,7 @@ SOCIAL_AUTH_INSTAGRAM_AUTH_EXTRA_ARGUMENTS = {'scope': 'likes comments relations
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = config('GOOGLE_OAUTH2_KEY')
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = config('GOOGLE_OAUTH2_SECRET')
 
-SOCIAL_AUTH_GOOGLE_OAUTH_SCOPE = 'https://www.googleapis.com/auth/userinfo.profile'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SCOPE = 'https://www.googleapis.com/auth/userinfo.profile'
 
 
 #FACEBOOK
