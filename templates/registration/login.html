@@ -77,7 +77,7 @@
 </span>
 Google
 </button></a>                                          
-<a href="{% url 'social:begin' 'facebook' %}" ><button type="button" class="btn btn-wd btn-info btn-fill btn-facebook btn-rotate">
+<a href="{% url 'social:begin' 'facebook' %}?next={{request.path}}" ><button type="button" class="btn btn-wd btn-info btn-fill btn-facebook btn-rotate">
 
 <span class="btn-label">
 <i class="ti-facebook"> </i>
