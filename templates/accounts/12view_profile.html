@@ -9,6 +9,11 @@
 <link rel="apple-touch-icon" sizes="76x76" href="{% static 'assets/img/apple-icon.png' %}">
 <link rel="icon" type="image/png" sizes="96x96" href="{% static 'assets/img/favicon.png' %}">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<link rel="icon" type="image/png" href="{% static "assets/img/favicon.png"%}">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="description" content="Create your free, homepage in just a few minutes.">
+<meta name="author" content="Jugadi Time">
+<meta name="keywords" content="thepoet.me, thepoet, thepoetdotme, poets, poetme, thepoetme">
 
 <title>thepoet.me | {{ firstname }} {{ lastname }}</title>
 
@@ -45,19 +50,19 @@
 <span class="icon-bar "></span>
 <span class="icon-bar"></span>
 </button>
- <a class="navbar-brand" href="https://thepoet.me">thepoet.me</a>
+<a class="navbar-brand" href="https://thepoet.me">thepoet.me</a>
 
 </div>
 <div class="collapse navbar-collapse">
 <ul class="nav navbar-nav navbar-right">
 
-         
-          <li><a href="{% url 'signup' %}">Get your free page</a></li>
-      
+
+<li><a href="{% url 'signup' %}">Get your free page</a></li>
+
 </ul>
 
-    
-      
+
+
 
 
 </div>
@@ -132,21 +137,21 @@
 
 <a href="https://twitter.com/{{ twitter }}"/>
 <button class="btn btn-icon btn-twitter">
-    <i class="ti-twitter"></i>
+<i class="ti-twitter"></i>
 </button>
 </a>
 
 <a href="https://www.facebook.com/{{ facebook }}"/>
 <button class="btn btn-icon btn-facebook">
-    <i class="ti-facebook"> </i>
+<i class="ti-facebook"> </i>
 </button></a>
 <a href="mailto:{{ email }}"/>
 <button class="btn btn-icon btn-email">
-    <i class="ti-email"></i>
+<i class="ti-email"></i>
 </button></a>
 <a href="https://www.instagram.com/{{ instagram }}"/>
 <button class="btn btn-icon btn-instagram">
-    <i class="ti-instagram"></i>
+<i class="ti-instagram"></i>
 </button></a>
 </div>
 </div>
@@ -159,38 +164,39 @@
 
 <div class="container">
 <div class="modal fade" id="modalCrop">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-          <h4 class="modal-title">Crop the photo</h4>
-        </div>
-        <div class="modal-body">
-          <img src="" id="image" style="max-width: 100%;">
-        </div>
-        <div class="modal-footer">
-          <div class="btn-group pull-left" role="group">
-            <button type="button" class="btn btn-default js-zoom-in">
-              <span class="glyphicon glyphicon-zoom-in"></span>
-            </button>
-            <button type="button" class="btn btn-default js-zoom-out">
-              <span class="glyphicon glyphicon-zoom-out"></span>
-            </button>
-          </div>
-          <button type="button" class="btn btn-default" data-dismiss="modal">Nevermind</button>
-          <button type="button" class="btn btn-primary js-crop-and-upload">Crop and upload</button>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+<h4 class="modal-title">Crop the photo</h4>
+</div>
+<div class="modal-body">
+<img src="" id="image" style="max-width: 100%;">
+</div>
+<div class="modal-footer">
+<div class="btn-group pull-left" role="group">
+<button type="button" class="btn btn-default js-zoom-in">
+<span class="glyphicon glyphicon-zoom-in"></span>
+</button>
+<button type="button" class="btn btn-default js-zoom-out">
+<span class="glyphicon glyphicon-zoom-out"></span>
+</button>
+</div>
+<button type="button" class="btn btn-default" data-dismiss="modal">Nevermind</button>
+<button type="button" class="btn btn-primary js-crop-and-upload">Crop and upload</button>
+</div>
+</div>
+</div>
+</div>
 </div>
 
 <footer class="footer footer-transparent">
 <div class="container">
 <div class="copyright text-center">
-&copy; <script>document.write(new Date().getFullYear())</script>, made with <i class="fa fa-heart heart"></i> by <a href="https://jugaditi.me">Jugadi Time</a>
+&copy; <script>document.write(new Date().getFullYear())</script>, Developed by <a href="https://jugaditi.me">Jugadi Time</a>
+& Designed by <a href="https://www.creative-tim.com/">Creative Tim</a>
 </div>
 </div>
 </footer>
