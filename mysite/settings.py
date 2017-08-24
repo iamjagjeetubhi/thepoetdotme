@@ -220,3 +220,4 @@ EMAIL_HOST = config('EMAIL_HOST')  # Eg. smtp.gmail.com
 EMAIL_HOST_USER = config('EMAIL_HOST_USER')  # Eg. user@domain.com
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 EMAIL_PORT = config('EMAIL_PORT', cast=int)
+DEFAULT_FROM_EMAIL = "thepoet.me"
