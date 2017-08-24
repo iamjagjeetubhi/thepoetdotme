@@ -2,6 +2,10 @@
 1) Enable virtual environment
 2) pip install python-decouple && pip install django && pip install django_countries && pip install django-avatar && pip install easy_thumbnails && pip install sorl-thumbnail && pip install social-auth-app-django && pip install mysqlclient && pip install django-image-cropping && pip install python-social-auth && pip install pyjwkest
 
+#if pip install mysqlclient error
+sudo apt-get install python-mysqldb
+sudo apt-get install libmysqlclient-dev
+
 
 sudo apt-get install libapache2-mod-wsgi
 sudo apt install libapache2-mod-wsgi-py3

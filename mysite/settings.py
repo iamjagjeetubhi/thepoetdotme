@@ -27,7 +27,7 @@ SECRET_KEY = config('SECRET_KEY')
 #staticfiles
 STATIC_DIR = os.path.join(BASE_DIR, 'static')
 
-#STATIC_ROOT = os.path.join(BASE_DIR, "static/")
+STATIC_ROOT = os.path.join(BASE_DIR, "static/")
 
 STATICFILES_DIRS = [STATIC_DIR, ]
 
@@ -43,14 +43,13 @@ DEBUG = config('DEBUG', cast=bool)
 
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=lambda v: [s.strip() for s in v.split(',')])
 
-STATICSITEMAPS_ROOT_SITEMAP = 'mysite.sitemaps.sitemaps'
+
 
 # Application definition
 
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
-    'static_sitemaps',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
