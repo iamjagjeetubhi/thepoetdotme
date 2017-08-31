@@ -111,7 +111,10 @@ class ProfileForm(forms.ModelForm):
         self.fields['about'].widget.attrs={
             'class':'form-control border-input',
             'placeholder': 'Something about you... ',
-            'rows':'5',}
+            'rows':'5',
+            'minlength':'200',
+
+            }
 
         self.fields['country'].required = True
         self.fields['country'].widget.attrs={

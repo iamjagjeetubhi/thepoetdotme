@@ -27,7 +27,7 @@ SECRET_KEY = config('SECRET_KEY')
 #staticfiles
 STATIC_DIR = os.path.join(BASE_DIR, 'static')
 
-STATIC_ROOT = os.path.join(BASE_DIR, "static/")
+#STATIC_ROOT = os.path.join(BASE_DIR, "static/")
 
 STATICFILES_DIRS = [STATIC_DIR, ]
 
@@ -65,10 +65,7 @@ INSTALLED_APPS = [
 ]
 
 AUTHENTICATION_BACKENDS = (
-    'social_core.backends.github.GithubOAuth2',
-    'social_core.backends.twitter.TwitterOAuth',
     'social_core.backends.facebook.FacebookOAuth2',
-    'social_core.backends.instagram.InstagramOAuth2',
     'social_core.backends.google.GoogleOAuth2',
     'django.contrib.auth.backends.ModelBackend',
 
@@ -84,7 +81,6 @@ SOCIAL_AUTH_PIPELINE = (
     'social_core.pipeline.user.get_username',
     'social_core.pipeline.social_auth.associate_by_email',
     'social_core.pipeline.user.create_user',
-      # <--- set the path to the function
     'social_core.pipeline.social_auth.associate_user',
     'social_core.pipeline.social_auth.load_extra_data',
     'social_core.pipeline.user.user_details',
@@ -116,7 +112,6 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.media',
-
                 'social_django.context_processors.backends',
                 'social_django.context_processors.login_redirect',
             ],
@@ -175,10 +170,7 @@ USE_L10N = True
 
 USE_TZ = True
 
-#INSTAGRAM
-SOCIAL_AUTH_INSTAGRAM_KEY = config('INSTAGRAM_KEY')
-SOCIAL_AUTH_INSTAGRAM_SECRET = config('INSTAGRAM_SECRET')
-SOCIAL_AUTH_INSTAGRAM_AUTH_EXTRA_ARGUMENTS = {'scope': 'likes comments relationships'}
+
 
 #GOOGLE
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = config('GOOGLE_OAUTH2_KEY')
@@ -201,7 +193,7 @@ SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {
 SOCIAL_AUTH_URL_NAMESPACE = 'social'
 SOCIAL_AUTH_FACEBOOK_API_VERSION = '2.9'
 
-SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/accounts/edit_profile'
+SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/accounts/userpage'
 # Serving static files in development
 # https://docs.djangoproject.com/en/1.10/howto/static-files/n
 
@@ -211,7 +203,7 @@ STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 
 LOGIN_URL = '/accounts/login'
-LOGIN_REDIRECT_URL = '/accounts/edit_profile'
+LOGIN_REDIRECT_URL = '/accounts/userpage'
 
 # Email server configuration
 

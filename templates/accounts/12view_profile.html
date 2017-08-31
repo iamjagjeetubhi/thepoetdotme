@@ -135,24 +135,34 @@
 
 <div class="text-center">
 
+
+
+<a href="mailto:{{ email }}"/>
+<button class="btn btn-icon btn-email">
+<i class="ti-email"></i>
+</button></a>
+
+{% if facebook %}
+<a href="https://www.facebook.com/{{ facebook }}"/>
+<button class="btn btn-icon btn-facebook">
+<i class="ti-facebook"> </i>
+</button></a>
+{% endif %}
+
+{% if twitter %}
 <a href="https://twitter.com/{{ twitter }}"/>
 <button class="btn btn-icon btn-twitter">
 <i class="ti-twitter"></i>
 </button>
 </a>
+{% endif %}
 
-<a href="https://www.facebook.com/{{ facebook }}"/>
-<button class="btn btn-icon btn-facebook">
-<i class="ti-facebook"> </i>
-</button></a>
-<a href="mailto:{{ email }}"/>
-<button class="btn btn-icon btn-email">
-<i class="ti-email"></i>
-</button></a>
+{% if instagram %}
 <a href="https://www.instagram.com/{{ instagram }}"/>
-<button class="btn btn-icon btn-instagram">
+<button class="btn btn-icon btn-google">
 <i class="ti-instagram"></i>
 </button></a>
+{% endif %}
 </div>
 </div>
 

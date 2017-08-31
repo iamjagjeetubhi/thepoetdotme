@@ -61,7 +61,10 @@ def activate(request, uidb64, token):
         return HttpResponse('Activation link is invalid!')
 
 def index(request):
-    return render(request, 'index.html')
+    if request.user.is_authenticated:
+        return redirect('userpage')
+    else:
+        return render(request, 'index.html')
 
 @login_required
 def userpage(request):

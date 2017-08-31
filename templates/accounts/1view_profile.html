@@ -38,7 +38,8 @@
 <span class="icon-bar "></span>
 <span class="icon-bar"></span>
 </button>
-<a class="navbar-brand" href="https://thepoet.me">thepoet.me</a>
+
+ <a class="navbar-brand" href="{% url 'userpage' %}">thepoet.me</a>
 
 </div>
 
@@ -185,31 +186,29 @@ Setting
 
 {% if request.user.profile.facebook %}
 <a href="https://www.facebook.com/{{ request.user.profile.facebook }}"/>
-{% else %}
-<a href="#">
-{% endif %}
 <button class="btn btn-icon btn-facebook">
 <i class="ti-facebook"> </i>
 </button></a>
+{% endif %}
+
 
 {% if request.user.profile.instagram %}
 <a href="https://www.instagram.com/{{ request.user.profile.instagram }}"/>
-{% else %}
-<a href="#">
-{% endif %}
 <button class="btn btn-icon btn-google">
 <i class="ti-instagram"></i>
 </button></a>
+{% endif %}
+
 
 {% if request.user.profile.twitter %}
 <a href="https://twitter.com/{{ request.user.profile.twitter }}"/>
-{% else %}
-<a href="#">
-{% endif %}
 <button class="btn btn-icon btn-twitter">
 <i class="ti-twitter"></i>
 </button>
 </a>
+
+{% endif %}
+
 
 </div>
 </div>
