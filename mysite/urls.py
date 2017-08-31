@@ -20,7 +20,7 @@ urlpatterns = [
         auth_views.password_reset_confirm, name='password_reset_confirm'),
     url(r'^reset/done/$', auth_views.password_reset_complete, name='password_reset_complete'),
 
-    url(r'^(?P<username>\w+)/$', views.myprofileview, name="myprofileview"),
+    url(r'^(?P<username>[-\w.]+)/$', views.myprofileview, name="myprofileview"),
     url(r'^$', views.index, name="indexview"),
     
     url(r'^admin/', admin.site.urls),
