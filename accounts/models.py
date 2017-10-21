@@ -112,6 +112,9 @@ def save_profile(backend, user, response, *args, **kwargs):
                     user.profile.facebook = response['link']
                     user.profile.facebook = user.profile.facebook[25:]
                 user.profile.save()
+                
+
+
             if backend.name == 'google-oauth2':
                 print("google user")
                 if not user.profile.file:

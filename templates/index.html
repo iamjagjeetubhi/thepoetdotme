@@ -47,7 +47,8 @@ width: 100%;
 	   background-repeat: no-repeat;
 	   background-size: cover;
 	   background-position: 50% 50%;
-height: inherit;
+	       overflow: hidden;
+height: 100%;
 }
 </style>
 <!-- Particles -->
@@ -64,7 +65,7 @@ particlesJS.load('particles-js', "{% static 'assets/particles.json' %}", functio
 </head>
 
 <body>
-<nav class="navbar navbar-fixed-top" role="navigation">
+<nav class="navbar navbar-fixed-top nav-landing" role="navigation">
 <div class="container">
 <!-- Brand and toggle get grouped for better mobile display -->
 <div class="navbar-header">
@@ -138,8 +139,15 @@ Get your free page
 <button onclick="location.href='{% url 'social:begin' 'facebook' %}';" type="button" class="btn btn-neutral"><i class="ti-facebook"> </i></button>
 
 <button onclick="location.href='{% url 'social:begin' 'google-oauth2' %}';" type="button" class="btn btn-neutral"><i class="ti-google"> </i></button>
-</div></div>
+</div>
 
+</div><!--<br>
+<button type="button" onclick="location.href='#section1';" id="homepage" class="btn btn-wd btn-neutral btn-move-right">
+
+<span class="btn-label">
+<i class="ti-angle-down"></i>
+</span>
+</button>-->
 </div>
 
 
@@ -148,23 +156,86 @@ Get your free page
 
 
 </div>
+
 </div>
 
-<!--<div class="wrapper">
+
+
+
+
+
+
+
+<div class="main" style="padding-top: 70px;">
+<div class="section section-white">
+<div class="container">
+<div class="row">
+<div class="col-md-8" >
+<img  class="img-responsive" src="{% static 'assets/img/f_thomasgimpel.png' %}" style="box-shadow:0 0 5px 5px white; margin-top: -30%;"></img>
+</div>
+<div class="col-md-4">
+<h3>Create a page to present who you are and what you do in one link.</h3>
+    </div>
+
+
+
+</div>
+<!--<div class="row">
+<div class="col-md-8 col-md-offset-4" >
+<img  class="img-responsive" src="{% static 'assets/img/f_thomasgimpel.png' %}" style="box-shadow:0 0 5px 5px white; margin-top: 10%"></img>
+</div>
+<div class="col-md-4" style="margin-top: -30%;">
+<h3>Create a page to present who you are and what you do in one link.</h3>
+    </div>
+</div>-->
+
+
+</div>
+</div>
+</div>
+
+<div class="main" style="padding-top: 20px;">
+<div class="section section-white">
+<div class="container">
+<!--<div class="row">
+<div class="col-md-8" >
+<img  class="img-responsive" src="{% static 'assets/img/f_thomasgimpel.png' %}" style="box-shadow:0 0 5px 5px white; "></img>
+</div>
+<div class="col-md-4">
+<h3>Create a page to present who you are and what you do in one link.</h3>
+    </div>
+
+
+
+</div>-->
+<div class="row">
+<div class="col-md-6 col-md-offset-3" >
+<img  class="img-responsive" src="{% static 'assets/img/f_thomasgimpel.png' %}" style="box-shadow:0 0 5px 5px white;"></img>
+</div>
+
+
+<div class="col-md-6 col-md-offset-3">
+<h3>Create a page to present who you are and what you do in one link.</h3>
+    </div>
+</div>
+</div>
+</div>
+</div>
+
+<!--<div class="wrapper" id="section2" style="margin-top: -10%;">
 
 <div class="main">
 <div class="section section-white">
 <div class="container">
-
-
-
-
-
-
-<div class="tim-row" id="license">
-<h2 class="text-center">Work under construction!</h2>
-<legend></legend>
+<div class="row">
+<div class="col-md-8" >
+<img  class="img-responsive" src="{% static 'assets/img/f_thomasgimpel.png' %}" style="box-shadow:0 0 5px 5px white; margin-top: -30%;"></img>
 </div>
+<div class="col-md-4">
+<h3>Create a page to present who you are and what you do in one link.</h3>
+    </div>
+
+
 
 </div>
 </div>
@@ -174,11 +245,17 @@ Get your free page
 </div>-->
 
 
-
-<!--   you can change the color of the filter page using: data-color="blue | azure | green | orange | red | purple" -->
-
+ <!--style="margin-top: -30%;" you can change the color of the filter page using: data-color="blue | azure | green | orange | red | purple" -->
 
 
+<footer class="footer footer-transparent">
+<div class="container">
+<div class="copyright text-center">
+&copy; <script>document.write(new Date().getFullYear())</script>, Developed by <a href="https://jugaditi.me">Jugadi Time</a>
+& Designed by <a href="https://www.creative-tim.com/">Creative Tim</a>
+</div>
+</div>
+</footer>
 
 </body>
 
