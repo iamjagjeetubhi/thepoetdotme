@@ -113,6 +113,7 @@ class ProfileForm(forms.ModelForm):
             'placeholder': 'Something about you... ',
             'rows':'5',
             'minlength':'200',
+	    'maxlength':'1000',
 
             }
 

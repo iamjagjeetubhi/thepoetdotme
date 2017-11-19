@@ -83,16 +83,16 @@ def view_profile(request):
             return redirect('view_profile')
     else:
         form = PhotoForm(instance=request.user.profile)
-    import facebook
-    graph = facebook.GraphAPI("EAABlXKvAUJIBANIbZB7dOwaYS1PLNUXar32hfpja0ZAR2WBNGiQbBH6lBd8AcPGhm1zNRMnCMobwtCFqSZAPln3AZADuvKy477oubxCqrS3PZCRiLyZAlwhGpOKlP9EOxZAWSnyIB3u8Ogm5DKq7WjXOkI3Q0BOIY0ZD")
+    #import facebook
+    #graph = facebook.GraphAPI("EAABlXKvAUJIBANIbZB7dOwaYS1PLNUXar32hfpja0ZAR2WBNGiQbBH6lBd8AcPGhm1zNRMnCMobwtCFqSZAPln3AZADuvKy477oubxCqrS3PZCRiLyZAlwhGpOKlP9EOxZAWSnyIB3u8Ogm5DKq7WjXOkI3Q0BOIY0ZD")
     #app_id = '111448692904082' # Obtained from https://developers.facebook.com/
     #app_secret = 'f470893aba8545e2e61bf55c082d09a1' # Obtained from https://developers.facebook.com/
 
     # Extend the expiration time of a valid OAuth access token.
     #extended_token = graph.extend_access_token(app_id, app_secret)
     #print(extended_token)    
-    post = graph.get_object(id='288577771193880', fields='feed')
-    print(post['feed']['data'][0]['message'])
+    #post = graph.get_object(id='288577771193880', fields='feed')
+    #print(post['feed']['data'][0]['message'])
     return render(request, 'accounts/1view_profile.html',  {'form': form,})
 
 def myprofileview(request, username):

@@ -17,7 +17,7 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     phone_number = models.CharField(max_length=20, blank=True)
     country = CountryField(blank=True)
-    about = models.TextField(max_length=500, blank=True)
+    about = models.TextField(max_length=1000, blank=True)
     facebook = models.CharField(max_length=500, blank=True)
     instagram = models.CharField(max_length=20, blank=True)
     twitter = models.CharField(max_length=20, blank=True)
